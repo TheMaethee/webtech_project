@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>               
+           <meta charset="utf-8">
+           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+           <link rel="stylesheet", href = "/static/styles.css"> 
+           <script src="/static/finalizeBuy.js" defer></script> 
+   </head>
+   <body id="body", background="/static/stbg.png", style="background-size: cover;">
+    <header id="header">
+        <a href="/home">
+            <button id = "userButton", type="button"></button>
+        </a>
+        <a href="/tickets">
+            <button id="ticketButton", type="button"></button>
+        </a>
+       Ghost Gang Official Ticket Selling Page
+       <a href="/admin">
+            <button id="adminButton", type="button"></button>
+       </a>
+    </header>
+            <div id="buying" style="background-color: rgb(20, 0, 150, 0.1)">
+                
+                <h1 style="color: white;">A meccsre még <b id="pcs">{{uzenet[0]}}</b> darab jegy elérhető.</h1>
+                <h2 style="color: white;">Ezek ára <b id="egy"> {{uzenet[1]}} </b>forint darabonként.</h2>
+                <p  style="color: white;">Hány jegyet szeretnél?</p>
+                <p>
+                    <input type="number", min="0", max="6", id="pieces", placeholder="db">
+                    <button type="submit", id="get", class="button", style="color: white;">Vásárlás</button>
+                </p>
+                <p style="color: white;">Fizetendő:<b id="ossz">0</b> forint.</p>
+            </div>
+        </body>
+</html>

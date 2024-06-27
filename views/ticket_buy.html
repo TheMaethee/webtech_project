@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>               
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet", href = "/static/styles.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type='text/javascript', src='https://projects.davidlynch.org/maphilight/jquery.maphilight.js'></script>
+        <script>$(document).ready(function () {$('#stadium').maphilight()})</script>   
+   </head>
+   <body id="body" background="/static/stbg.png", style="background-size: cover;">
+    <header id="header">
+        <a href="/home">
+            <button id = "userButton", type="button"></button>
+        </a>
+        <a href="/tickets">
+            <button id="ticketButton", type="button"></button>
+        </a>
+       Ghost Gang Official Ticket Selling Page
+       <a href="/admin">
+            <button id="adminButton", type="button"></button>
+       </a>
+    </header>
+    <body>
+        <map name="sectors">
+            <div id="vip">
+                <area shape="rect" coords="75 , 234 , 108 , 317">
+                <area shape="rect" coords="75 , 108 , 108 , 191">
+            </div>
+            <div id="a">
+                <area shape="rect" coords="125 , 100 , 445 , 58">
+                <area shape="rect" coords="125 , 325 , 445 , 367">
+            </div> 
+            <div id="b">
+                <area shape="rect" coords="125 , 58 , 445 , 16">
+                <area shape="rect" coords="125 , 367 , 445 , 409">
+            </div>
+            <div id="c">
+                <area shape="rect" coords="50 , 108 , 25 , 317">
+            </div>
+            <div id="d">
+                <area shape="poly" coords="125 , 16 , 75 , 58, 75 , 100 , 125 , 100">
+                <area shape="poly" coords="125 , 409 , 75 , 367, 75 , 325 , 125 , 325">
+            </div>
+            <div id ="guest">
+                <area shape="rect" coords="460, 138, 481, 285">
+            </div>
+        </map>
+        <div id="sectorInfo">
+            <div>
+                <img src="/static/stadium.png", usemap="#sectors", id="stadium">
+            </div>
+            <div>
+                <p style="color: white;"><b id="info", style="background-color: rgb(20, 0, 150, 0.2);"></b></p>
+                <form action="", method="post", id="buyLink">
+                    <button id="buy", type="submit", class="button", style="color: white;" hidden>Ezt szeretném!</button>
+                </form>
+            </div>
+        </div>
+        <script src="/static/sectorChoose.js", type="module"></script>  
+        </body>
+</html>

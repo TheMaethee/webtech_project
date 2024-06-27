@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet", href = "/static/styles.css">
+    <script>
+        var rowId = null;
+        function processID() {
+            rowId = parseInt(document.getElementById("delID").value);
+            if (Number.isInteger(rowId)) {
+                document.getElementById("IDError").innerHTML = "ID for deletion submitted.";
+            } else {
+                document.getElementById("IDError").innerHTML = "Invalid Input!";
+            }
+        }
+        function deleteRow() {
+            if (Number.isInteger(rowId)) {
+                fetch('http://localhost:8080/remove-row', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id: rowId })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        console.log('Row deleted successfully');
+                    } else {
+                        console.error('Error:', data.message);
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+                document.getElementById("processError").innerHTML = "Attempting to delete match...";
+            } else {
+                console.error('ID is required');
+                document.getElementById("processError").innerHTML = "Invalid ID given";
+            }
+        }
+    </script>
+    </head>
+    <body id="body" background="/static/abg.png", style="background-position: center;">
+        <header id="header">
+            <a href="/home">
+                <button id = "userButton", type="button"></button>
+            </a>
+            <a href="/tickets">
+                <button id="ticketButton", type="button"></button>
+            </a>
+           Ghost Gang Official Ticket Selling Page
+           <a href="/admin">
+                <button id="adminButton", type="button"></button>
+           </a>
+        </header>
+        <div>
+            <h1 id="h1">You are about to delete match from database...</h1>
+            <h4 id="h1">
+                <table , style="color: white;"> 
+                    <th>ID</th>
+                    <th>Hazai</th>
+                    <th>Vendég</th>
+                    <th>Dátum</th>
+                    <th>Stadion</th>
+                    <th>Város</th>
+                %for meccs in meccsek:
+                <div>
+                    <tr id="tr">
+                        <td>
+                            {{ meccs[5] }}
+                        </td>
+                        <td>
+                            {{ meccs[0] }}
+                        </td>
+                        <td>
+                            {{ meccs[1] }}
+                        </td>
+                        <td>
+                            {{ meccs[2] }}
+                        </td>
+                        <td>
+                            {{ meccs[3] }}
+                        </td>
+                        <td>
+                            {{ meccs[4] }}
+                        </td>
+                    </tr>
+                </div>
+                %end
+                </table>
+                <b>
+            </h4>
+            <div>
+            <h4 id="h1">
+                <form id="delete">
+                    <p style="color: white;">ID for deletion:</p> <input type="text" id="delID"><br>
+                    <button type="button" onclick="processID()", class="button", style="color: white;">Submit</button>
+                </form>
+                <p id="IDError"></p>
+                <button onclick="deleteRow()", class="button", style="color: white;">Send Data</button>
+                <p id="processError"></p>
+            </h4>
+            </div>
+        </div>
+    </body>
+</html>

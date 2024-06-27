@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>               
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet", href = "/static/styles.css">
+            <audio id="goal" src="/static/goal.mp3"></audio>
+    </head>
+    <body id="body", background="/static/fg2.png">
+        <header id="header">
+            <a href="/home">
+                <button id = "userButton", type="button"></button>
+            </a>
+            <a href="/tickets">
+                <button id="ticketButton", type="button"></button>
+            </a>
+           Ghost Gang Official Ticket Selling Page
+           <a href="/admin">
+                <button id="adminButton", type="button"></button>
+           </a>
+        </header>
+        <div id="success">
+            <h1 style="text-align: center;">Góóóól!</h1>
+            <h1 style="text-align: center;">Sikeres jegyvásárlás!</h1>
+            <a href="/home"><button type="button", class="button">Főoldal</button></a>
+            <a href="/tickets"><button type="button", class="button">Jegyeim</button></a>
+        </div>
+        <div id="rendez"></div>
+        <button id="eastereggbutton_always"></button>
+        </div>
+        <script>
+            var p = document.getElementById("eastereggbutton_always")
+            p.onclick=function(){
+                document.getElementById("goal").play()
+            };
+        </script>
+    </body>

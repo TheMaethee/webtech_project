@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet", href = "/static/styles.css">
+    </head>
+    <script>
+        var guestName = null;
+        var matchDate = null;
+        var vipPrice = null;
+        var aPrice = null;
+        var bPrice = null;
+        var cPrice = null;
+        var dPrice = null;
+        var gPrice = null;
+        function processGuest() {
+            guestName = document.getElementById("guestt").value;
+            if (guestName == "") {
+                document.getElementById("guestError").innerHTML = "No Guest Team submitted. Try again!";
+            } else {
+                document.getElementById("guestError").innerHTML = "Guest Team submitted.";
+            }
+        }
+        function processDate() {
+            matchDate = document.getElementById("mdate").value;
+            if (matchDate == "") {
+                document.getElementById("dateError").innerHTML = "No date submitted. Try again!";
+            } else {
+                document.getElementById("dateError").innerHTML = "Date submitted.";
+            }
+        }
+        function processVIP() {
+            vipPrice = parseInt(document.getElementById("vipPrice").value);
+            if (Number.isInteger(vipPrice)) {
+                document.getElementById("vipError").innerHTML = "VIP Price submitted";
+            } else {
+                document.getElementById("vipError").innerHTML = "Invalid input! Try again!";
+            }
+        }
+        function processA() {
+            aPrice = parseInt(document.getElementById("aPrice").value);
+            if (Number.isInteger(aPrice)) {
+                document.getElementById("aError").innerHTML = "Sector A Price submitted";
+            } else {
+                document.getElementById("aError").innerHTML = "Invalid input! Try again!";
+            }
+        }
+        function processB() {
+            bPrice = parseInt(document.getElementById("bPrice").value);
+            if (Number.isInteger(bPrice)) {
+                document.getElementById("bError").innerHTML = "Sector B Price submitted";
+            } else {
+                document.getElementById("bError").innerHTML = "Invalid input! Try again!";
+            }
+        }
+        function processC() {
+            cPrice = parseInt(document.getElementById("cPrice").value);
+            if (Number.isInteger(cPrice)) {
+                document.getElementById("cError").innerHTML = "Sector C Price submitted";
+            } else {
+                document.getElementById("cError").innerHTML = "Invalid input! Try again!";
+            }
+        }
+        function processD() {
+            dPrice = parseInt(document.getElementById("dPrice").value);
+            if (Number.isInteger(dPrice)) {
+                document.getElementById("dError").innerHTML = "Sector D Price submitted";
+            } else {
+                document.getElementById("dError").innerHTML = "Invalid input! Try again!";
+            }
+        }
+        function processG() {
+            gPrice = parseInt(document.getElementById("gPrice").value);
+            if (Number.isInteger(gPrice)) {
+                document.getElementById("gError").innerHTML = "Guest Sector Price submitted";
+            } else {
+                document.getElementById("gError").innerHTML = "Invalid input! Try again!";
+            }
+        }
+        function sendData() {
+            const array = [guestName, matchDate, vipPrice, aPrice, bPrice, cPrice, dPrice, gPrice];
+            const jsonData = JSON.stringify(array);
+            if (guestName && matchDate && Number.isInteger(vipPrice) && Number.isInteger(aPrice), Number.isInteger(bPrice), Number.isInteger(cPrice), Number.isInteger(dPrice), Number.isInteger(gPrice)) {
+                fetch('/receive-array', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: jsonData
+                })
+                .then(response => response.json())
+                .then(data => console.log('Success:', data))
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+                document.getElementById("processError").innerHTML = "Injecting information to the database...";
+            } else {
+                document.getElementById("processError").innerHTML = "Invalid data submitted! Try again!";
+            }
+        }
+    </script>
+    <<body id="body" background="/static/abg.png", style="background-position: center;">        <header id="header">
+            <a href="/home">
+                <button id = "userButton", type="button"></button>
+            </a>
+            <a href="/tickets">
+                <button id="ticketButton", type="button"></button>
+            </a>
+           Ghost Gang Official Ticket Selling Page
+           <a href="/admin">
+                <button id="adminButton", type="button"></button>
+           </a>
+        </header>
+        <h1 id="h1", style="color: white;">You are about to add a new match to the database...</h1>
+        <h2 id="h2", style="color: white;">
+            <div>
+            <form id="guest">
+                Guest Team: <input type="text" id="guestt"><br>
+                <button type="button" onclick="processGuest()", class="button", style="color: white;">Submit</button>
+            </form>
+            <h6>
+                <p id="guestError"></p>
+            </h6>
+            <form id="date">
+                Match Date: <input type="text" id="mdate"><br><br>
+                <input type="button" onclick="processDate()" value="Submit" class="button", style="color: white;">
+            </form>
+            <h6>
+                <p id="dateError"></p>
+            </h6>
+            <form id="VIP">
+                Price for VIP Sector: <input type="text" id="vipPrice"><br><br>
+                <input type="button" onclick="processVIP()" value="Submit" class="button", style="color: white;">
+            </form>
+            <h6>
+                <p id="vipError"></p>
+            </h6>
+            <form id="A">
+                Price for Sector A: <input type="text" id="aPrice"><br><br>
+                <input type="button" onclick="processA()" value="Submit", class="button", style="color: white;">
+            </form>
+            <h6>
+                <p id="aError"></p>
+            </h6>
+            <form id="B">
+                Price for Sector B: <input type="text" id="bPrice"><br><br>
+                <input type="button" onclick="processB()" value="Submit", class="button", style="color: white;">
+            </form>
+            <h6>
+                <p id="bError"></p>
+            </h6>    
+            <form id="C">
+                Price for Sector C: <input type="text" id="cPrice"><br><br>
+                <input type="button" onclick="processC()" value="Submit", class="button", style="color: white;">
+            </form>
+            <h6>
+                <p id="cError"></p>
+            </h6>
+            <form id="D">
+                Price for Sector D: <input type="text" id="dPrice"><br><br>
+                <input type="button" onclick="processD()" value="Submit", class="button", style="color: white;">
+            </form>
+            <h6>
+                <p id="dError"></p>
+            </h6>
+            <form id="GuestSect">
+                Price for Guest Sector: <input type="text" id="gPrice"><br><br>
+                <input type="button" onclick="processG()" value="Submit", class="button", style="color: white;">
+            </form>
+            <h6>
+                <p id="gError"></p>
+            </h6>
+            <button onclick="sendData()", class="button", style="color: white;">Send Data</button>
+            <p id="processError"></p>
+            </div>
+        </h2>
+    </body>
+</html>

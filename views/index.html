@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>               
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet", href = "/static/styles.css">
+        <audio id="whistle" src="/static/whistle.mp3"></audio>
+    </head>
+    <body id="body", background="/static/fg.png">
+        <header id="header">
+            <a href="/home">
+                <button id = "userButton", type="button"></button>
+            </a>
+            <a href="/tickets">
+                <button id="ticketButton", type="button"></button>
+            </a>
+           Ghost Gang Official Ticket Selling Page
+           <a href="/admin">
+                <button id="adminButton", type="button"></button>
+           </a>
+        </header>
+        <div style="background-color: rgb(20, 0, 150, 0.2);">
+        <h1 id="h1", style="color: white;">Üdv a <b>Ghost Gang</b> hivatalos jegyértékesítő oldalán!</h1>
+        </div>
+        <div id="rendez">
+        <table id = table>
+            <th>Hazai</th>
+            <th>Ellenfél</th>
+            <th>Időpont</th>
+            <th>Helyszín</th>
+            <th>Vásárlés</th>
+
+            <tr>
+                %i = 0
+                <td>{{  meccsek[i][0]  }}</td>
+                <td>{{  meccsek[i][1]  }}</td>
+                <td>{{  meccsek[i][2]  }}</td>
+                <td>{{  meccsek[i][3]  }}</td>
+                <td>
+                    <form action="/1", method="post">
+                        <a href="ticket_buy.html">
+                            <button type="submit", id="match1", class="button">
+                                Vásárlás
+                            </button>
+                        </a>
+                    </form>
+                </td>
+            </tr>
+            <tr></tr>
+                %i = 1
+                <td>{{  meccsek[i][0]  }}</td>
+                <td>{{  meccsek[i][1]  }}</td>
+                <td>{{  meccsek[i][2]  }}</td>
+                <td>{{  meccsek[i][3]  }}</td>
+                <td>
+                    <form action="/2", method="post">
+                        <a href="ticket_buy.html">
+                            <button type="submit", id="match2", class="button">
+                                Vásárlás
+                            </button>
+                        </a>
+                    </form>
+                </td>
+            <tr>
+                %i = 2
+                <td>{{  meccsek[i][0]  }}</td>
+                <td>{{  meccsek[i][1]  }}</td>
+                <td>{{  meccsek[i][2]  }}</td>
+                <td>{{  meccsek[i][3]  }}</td>
+                <td>
+                    <form action="/3", method="post">
+                        <a href="ticket_buy.html">
+                            <button type="submit", id="match3", class="button">
+                                Vásárlás
+                            </button>
+                        </a>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                %i = 3
+                <td>{{  meccsek[i][0]  }}</td>
+                <td>{{  meccsek[i][1]  }}</td>
+                <td>{{  meccsek[i][2]  }}</td>
+                <td>{{  meccsek[i][3]  }}</td>
+                <td>
+                    <form action="/4", method="post">
+                        <a href="ticket_buy.html">
+                            <button type="submit", id="match4", class="button">
+                                Vásárlás
+                            </button>
+                        </a>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                %i = 4
+                <td>{{  meccsek[i][0]  }}</td>
+                <td>{{  meccsek[i][1]  }}</td>
+                <td>{{  meccsek[i][2]  }}</td>
+                <td>{{  meccsek[i][3]  }}</td>
+                <td>
+                    <form action="/5", method="post">
+                        <a href="ticket_buy.html">
+                            <button type="submit", id="match5", class="button">
+                                Vásárlás
+                            </button>
+                        </a>
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <button id="eastereggbutton"></button>
+        <script src="/static/matchChoose.js"></script>
+        </div>
+    </body>
+    <script>
+        var p = document.getElementById("eastereggbutton")
+        p.onclick=function(){
+            document.getElementById("whistle").play()
+        };
+    </script>
+</html>

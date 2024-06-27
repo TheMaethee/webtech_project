@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>               
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet", href = "/static/styles.css">
+        <script src="/static/jumpto.js", type="module"></script>
+    </head>
+    <body id="body" background="/static/stbg.png", style="background-size: cover;">
+        <header id="header">
+            <a href="/home">
+                <button id = "userButton", type="button"></button>
+            </a>
+            <a href="/tickets">
+                <button id="ticketButton", type="button"></button>
+            </a>
+           Ghost Gang Official Ticket Selling Page
+           <a href="/admin">
+                <button id="adminButton", type="button"></button>
+           </a>
+        </header>
+        <body>
+            <h1 id="h1">A jegyeim:</h1>
+            <table id = tickets>
+                <th>Hazai</th>
+                <th>Vendég</th>
+                <th>Stadion</th>
+                <th>Szektor</th>
+                <th>Város</th>
+                <th>Időpont</th>
+                <th>DB</th>
+            %for tick in ticks:
+            <div>   
+                <tr>
+                    <td>
+                    {{ tick[0] }}
+                    </td>
+                    <td>
+                    {{ tick[1] }}
+                </td>
+                <td>
+                    {{ tick[2] }}
+                </td>
+                <td>
+                    {{ tick[4] }}
+                </td>
+                <td>
+                    {{ tick[3] }}
+                </td>
+                <td>
+                    {{ tick[5] }}
+                </td>
+                <td>
+                    {{ tick[6] }}
+                </td>
+                </tr>
+            </div>
+            %end
+            </table>
+        </body>
